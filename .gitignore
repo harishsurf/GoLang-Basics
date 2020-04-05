@@ -1,0 +1,7 @@
+# Exclude below directories
+
+
+
+# Exclude below files
+.idea
+

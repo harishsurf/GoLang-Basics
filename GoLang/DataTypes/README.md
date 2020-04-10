@@ -77,3 +77,12 @@ var s string = "Hello"
 ## 2. Aggregate Types - These are arrays and structs
 ## 3. Reference Types - These are your pointers and slices
 ## 4. Interface Types - These are your standard interfaces
+
+
+## Miscellaneous
+
+* variable can be a `func()` type
+```shell script
+var a func()
+fmt.Printf("Type: %T, Value: %v\n", a,a)  // outputs: Type: func(), Value: <nil>
+```

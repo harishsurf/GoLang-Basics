@@ -38,9 +38,21 @@ https://www.cyberciti.biz/faq/how-do-i-add-jobs-to-cron-under-linux-or-unix-oses
 
 ## Makefile
 
+#### Syntax:
+A Makefile consists of a set of rules. A rule generally looks like this:
+```sh
+targets : prerequisities
+   command
+   command
+   command
+```
+   - The targets are file names, seperated by spaces. Typically, there is only one per rule.
+   - The commands are a series of steps typically used to make the target(s). These need to start with a tab character, not spaces.
+   - The prerequisites are also file names, seperated by spaces. These files need to exist before the commands for the target are run.
+
 * Automatic variables in Makefile
-    `$@`
-    `$<`
+    `$@` : evaluates to target
+    `$<` : evaluates to 1st prerequisite (usually a source file in the command)
 <br/>Refer to :
     - https://stackoverflow.com/questions/3220277/what-do-the-makefile-symbols-and-mean
     - https://www.gnu.org/software/make/manual/html_node/Automatic-Variables.html

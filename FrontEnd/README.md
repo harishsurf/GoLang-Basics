@@ -4,19 +4,80 @@
 
 - `var`, `let`, `const`: https://www.freecodecamp.org/news/var-let-and-const-whats-the-difference/
 - variable types - https://javascript.info/types
+
   - **Primitive types:** number, string, boolean, null, undefined
   - **Reference types:** object, array, function
   - `let age = null` - `null` is a special value which represents “nothing”, “empty” or “value unknown”.
+  - `null` vs `undefined` - `null` needs to be explicitly assigned to a variable, where as when a variable is declared and not defined it takes the value of `undefined`
   - ```sh
      let age
      typeof age  // undefined - is “value is not assigned”.
     ```
   - **Arrays**:
+
     - `let arr = ['Hi', 'world', 1]`
     - arr can have different value types
-    - the size can be dynamic. Ex: `arr[3] = 4` makes the array's len = 4
+    - the size can be dynamic. Ex: `arr[3] = 4` makes `arrays.length === 4`
     - `typeof arr` // object
-    -
+    - Alternative way of declaring array using `new`: `let names = new Array('bob', 'jack')`
+    - 2D array: `let multiArray = [[1,2,3], [4,5,6]]`
+    - All array operations : https://medium.com/better-programming/the-complete-guide-to-using-arrays-in-javascript-c77f1abab50e
+      - `const nums = [1,2,3,4]`
+      - **forEach** : `nums.forEach(n => console.log(n))`
+        - You cannot break out of `forEach`
+        - DOES NOT return a value
+      - **map(mapFunction)** : `const newArray = nums.map(n => n*2)`
+        - returns a new array which transforms the existing array’s element using the map function
+      - **find** : `const num = nums.find( n => n == 1)`
+        - returns a single element in the array matching the condition otherwise `undefined`
+      - **findIndex** : `const index = nums.findIndex( n => n == 2)`
+        - returns index of element in the array matching the condition otherwise `-1`
+      - **filter** : `const[] filteredNums = nums.filter( n => n == 1)`
+        - returns a **new** array with elements matching the condition otherwise returns `[]`
+      - **includes** : `const isPresent = nums.includes(3)`
+        - returns boolean
+      - **some** : `const bool = nums.some( n => n == 1)`
+        - returns `true` if some items match the condition
+      - **every** : `const bool = nums.every( n => n == 1)`
+        - returns `true` only if all the elements in the array match the condition
+      - **Array.isArray()** : `const bool = Array.isArray(nums)`
+        - checks if an object given is an array
+      - **reduce(a,b)** : `const sum = arr.reduce((a,b)=>a+b)`
+        - takes two arguments - current and next element in the array
+        - returns a single value by combining all the elements using the reduce function
+    - **Splice vs Slice**
+
+      - `Splice(idx [, no.OfElements to remove [, new items to be added]])`
+
+        - removes elements from given `idx` and returns the removed elements as a new array object
+        - MODIFIES the original array
+        - if 2nd argument is specified, it only removes those many elements from the given `idx`
+        - if no elements are removed `[]` is returned
+
+        ```
+        // 1
+        let nums = [1,2,3,4,5];
+        let splicedArray = nums.splice(1);
+        console.log(splicedArray);   // [2,3,4,5]
+        console.log(nums);           // [1]
+
+        // 2
+        let nums = [1,2,3,4,5];
+        let splicedArray = nums.splice(1,2);
+        console.log(splicedArray);   // [2,3]
+        console.log(nums);           // [1,4,5]
+        ```
+
+    - `Slice([startIdx [, endIdx]])`
+      - returns the selected elements in an array, as a new array object
+      - **slice does not alter the original array**
+      - If `startIdx` is undefined, slice starts from the index 0
+      - If `endIdx` is omitted, slice extracts through the end of the sequence
+      - slice extracts up to but not including `endIdx`.
+        Ex: `slice(1,4)` extracts the second element through the fourth element
+      - A negative index can be used, indicating an offset from the end of the sequence - Ex: `slice(-2)` extracts last two elements
+      -
+
   - **Functions**
     - no type is specified for function args
     - can return 0 or 1 value
@@ -40,7 +101,7 @@
 #### Operator Precendence
 
 - Unlike other languages, JS allows non-boolean expression when using logical operators.
-- Falsy values in JS: `false`, `null`, `""` (empty string), `0`, `Nan`
+- Falsy values in JS: `false`, `null`, `""` (empty string), `0`, `NaN`, undefined
 - Example:
   - `false || null || "" || 0 || NaN || "Hello" || undefined` // "Hello"
   - `1 && [] && {} && true && "World" && null && 2010` // null

@@ -1,5 +1,9 @@
 ### Javascript
 
+- Javascript ES6 onwards supports classes - but it is not a regular class based design(like other programming languages) instead it is a syntactic sugar
+- Javascript does not support interfaces where as typescript does. nterfaces in type script can have variables and function declarations
+- Javascript does not support inheritance
+
 #### Variables
 
 - `var`, `let`, `const`: https://www.freecodecamp.org/news/var-let-and-const-whats-the-difference/
@@ -80,10 +84,11 @@
 
   - **Functions**
     - no type is specified for function args
+    - JS supports higeher order functions
     - can return 0 or 1 value
     - Functions always return a value. In JavaScript, if no return value is specified, the function will return `undefined`.
     - Different kinds: https://codeburst.io/javascript-functions-understanding-the-basics-207dbf42ed99
-      1. Function Expression:
+      1. Function Expression: It means functions assigned to a variable
          ```sh
          let myFunc = function (params) {
              console.log("this is a Function Expression");
@@ -97,6 +102,16 @@
          ```
          Note: If the function defn is only one line, then : `let myFunc = (params) => console.log("arrow func")`
          and if no params, then `let myFunc = () => console.log('Hi')`
+    - Hoisting:
+      - Hoisting is JavaScript's default behavior of moving all declarations to the top of the current scope
+      - Javascript supports hoisting which means variables/ function declarations can be called even before they are defined.
+      ```sh
+      msg("hello");
+      function msg(string s) {
+        console.log(s);
+      }
+      ```
+      Note: Function expressions does not support hoisting
 
 #### Operator Precendence
 
@@ -201,6 +216,19 @@ Things to remember:
 
 - `useState` and `useEffect` example: https://www.youtube.com/watch?v=d9Pndaq9MJs
 - https://reactjs.org/docs/hooks-reference.html
+- `useReducer`
+
+  - similar to `useState` but used when maintaining a complex state and handlers
+  - https://www.robinwieruch.de/react-usereducer-hook
+
+- `useMemo` and `useCallback`
+  - `useMemo` is used to memoize values, `useCallback` is used to memoize functions.
+  - https://www.robinwieruch.de/react-usememo-hook
+  - https://www.robinwieruch.de/react-usecallback-hook
+
+### React Context
+
+-
 
 ### React+TypeScript Cheatsheets
 
@@ -208,6 +236,7 @@ Things to remember:
 
 ### Redux
 
+- Reducers in React - `useReducer` hook
 - https://www.youtube.com/watch?v=9boMnm5X9ak&list=PLC3y8-rFHvwheJHvseC3I0HuYI2f46oAK
 
 ### Webpack
